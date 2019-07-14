@@ -88,7 +88,8 @@ class robot:
             dy = dy + noise * self.measurement_noise
             radius = self.measurement_range
             #check if dx and dy are out of range
-            if(dx**2 + dy**2 <= radius ** 2):
+            #if(dx**2 + dy**2 <= radius ** 2):
+            if abs(dx) <= self.measurement_range and abs(dy) <= self.measurement_range:
                 measurements.append([index, dx, dy])
         
         return measurements
